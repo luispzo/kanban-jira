@@ -1,0 +1,31 @@
+name: CI - Kanban React
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-and-build:
+    name: Instalar, probar y compilar
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v5
+
+      - name: Configurar Node.js 22
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar pruebas automatizadas (Vitest)
+        run: npm test -- --reporter=verbose
+
+      - name: Build de producción
+        run: npm run build

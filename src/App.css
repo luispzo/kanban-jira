@@ -1,0 +1,42 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #172b4d;
+}
+.app { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.app-header h1 { margin: 0 0 4px; }
+.app-header p { margin: 0 0 20px; color: #5e6c84; }
+
+.task-form { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.task-form input { flex: 1 1 220px; padding: 10px; border: 1px solid #c1c7d0; border-radius: 6px; font-size: 14px; }
+.error { width: 100%; margin: 0; color: #de350b; font-size: 14px; }
+
+button {
+  padding: 8px 14px; border: none; border-radius: 6px; cursor: pointer;
+  background: #0052cc; color: white; font-size: 14px;
+}
+button:hover { background: #0747a6; }
+button.secundario { background: #dfe1e6; color: #172b4d; }
+button.peligro { background: #de350b; }
+button.peligro:hover { background: #bf2600; }
+
+.tablero { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 800px) { .tablero { grid-template-columns: 1fr; } }
+
+.columna { background: #ebecf0; border-radius: 8px; padding: 12px; min-height: 300px; border-top: 4px solid #97a0af; transition: background .15s; }
+.columna-en_progreso { border-top-color: #0052cc; }
+.columna-completado { border-top-color: #36b37e; }
+.columna.resaltada { background: #deebff; }
+.columna h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .5px; margin: 4px 0 12px; color: #5e6c84; }
+.vacio { color: #97a0af; font-size: 14px; text-align: center; }
+
+.tarjeta { background: white; border-radius: 6px; padding: 12px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(9,30,66,.25); cursor: grab; }
+.tarjeta h3 { margin: 0 0 6px; font-size: 15px; }
+.tarjeta p { margin: 0 0 10px; font-size: 14px; color: #5e6c84; }
+.tarjeta.editando input, .tarjeta.editando textarea { width: 100%; margin-bottom: 8px; padding: 8px; border: 1px solid #c1c7d0; border-radius: 4px; font: inherit; }
+.selector { display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 10px; }
+.selector select { padding: 4px; border-radius: 4px; }
+.acciones { display: flex; gap: 6px; }
+.acciones button { padding: 6px 10px; font-size: 13px; }
