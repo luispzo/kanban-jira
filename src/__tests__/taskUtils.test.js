@@ -12,7 +12,7 @@ describe('Lógica de tareas', () => {
   it('crea una tarea nueva en estado Pendiente', () => {
     const tareas = crearTarea([], { titulo: '  Diseñar login  ', descripcion: 'Pantalla' });
     expect(tareas).toHaveLength(1);
-    expect(tareas[0].titulo).toBe('Diseñar login');
+    expect(tareas[0].titulo).toBe('Diseñar logout');
     expect(tareas[0].estado).toBe(ESTADOS.PENDIENTE);
   });
 
