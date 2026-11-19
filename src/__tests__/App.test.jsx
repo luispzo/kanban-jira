@@ -53,4 +53,12 @@ describe('App Kanban', () => {
     await user.click(screen.getByRole('button', { name: 'Eliminar Borrar esto' }));
     expect(screen.queryByText('Borrar esto')).not.toBeInTheDocument();
   });
+    it('muestra el contador de tareas por columna', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await agregarTarea(user, 'Uno');
+    await agregarTarea(user, 'Dos');
+    const pendiente = screen.getByRole('region', { name: 'Pendiente' });
+    expect(within(pendiente).getByLabelText('2 tareas')).toHaveTextContent('2');
+  });
 });

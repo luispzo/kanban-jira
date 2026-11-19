@@ -23,7 +23,10 @@ export default function Column({ columna, tareas, onEditar, onEliminar, onMover 
       onDragLeave={() => setResaltada(false)}
       onDrop={handleDrop}
     >
-      <h2 id={tituloId}>{columna.titulo}</h2>
+      <div className="columna-header">
+        <h2 id={tituloId}>{columna.titulo}</h2>
+        <span className="contador" aria-label={`${tareas.length} tareas`}>{tareas.length}</span>
+      </div>
       {tareas.length === 0 && <p className="vacio">Sin tareas</p>}
       {tareas.map((t) => (
         <TaskCard
